@@ -10,9 +10,9 @@
 
 ### 下载
 ```
-wget https://github.com/jhao104/django-blog/archive/master.zip
+wget https://github.com/xljdawow-lj/blog/archive/master.zip
 or
-git clone git@github.com:jhao104/django-blog.git
+git clone git@github.com:xljdawow-lj/blog.git
 ```
 
 ### 安装
