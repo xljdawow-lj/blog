@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="arclist">
     <ul>
         {% for blog in blogs %}
@@ -9,7 +11,9 @@
         <div class="arcimg">
         {#    最新文章、热门文章，左侧img    #}
 {#            <img src="{{ blog.picture }}" alt="{{ blog.title }}" title="{{ blog.title }}"/>#}
-            <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" alt="{{ blog.title }}" title="{{ blog.title }}"/>
+{#            <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" alt="{{ blog.title }}" title="{{ blog.title }}"/>#}
+               <img src="{% static 'images/img.png' %}" alt="{{ blog.title }}" title="{{ blog.title }}"/>
+
         </div>
         <div class="arc-right">
             <h4 class="blue-text"><a href="{% url "blog:detail" blog.id %}"
@@ -29,8 +33,10 @@
                         <a title="标签: {{ tag.tag_name }}" href="{% url "blog:tag" tag.tag_name %}"><i class="el-tag"></i>{{ tag.tag_name }}</a>&nbsp;
                     </li>
                 {% endfor %}
-                <li><a href="{% url "blog:list" %}}" title="查看分类"><i
-                        class="el-th-list"></i>{{ blog.category }}</a></li>
+                <li>
+{#                    <a href="{% url "blog:list" %}}" title="查看分类"><i class="el-th-list"></i>{{ blog.category }}</a>#}
+                    <a href="{% url "blog:category" blog.category%}" title="查看分类"><i class="el-th-list"></i>{{ blog.category }}</a>
+                </li>
             </ul>
         </div>
         </li>

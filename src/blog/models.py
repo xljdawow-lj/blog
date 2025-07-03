@@ -34,8 +34,15 @@ class Article(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='作者', on_delete=models.CASCADE)
     view = models.BigIntegerField(default=0)  # 阅读数
     comment = models.BigIntegerField(default=0)  # 评论数
-    picture = models.CharField(max_length=200)  # 标题图片地址
-    # 使用 ImageField 存储本地图片（相对路径）
+    # picture = models.CharField(max_length=200)  # 标题图片地址
+    # 图片字段（非必填，无上传时自动使用 media/default.jpg）
+    # picture = models.ImageField(
+    #     upload_to='uploads/',         # 上传目录
+    #     blank=True,                   # 非必填
+    #     null=True,                    # 数据库允许NULL
+    #     default='static/images/img.png',        # 直接指定默认图片名
+    #     verbose_name="封面图片"
+    # )
     tag = models.ManyToManyField(Tag)  # 标签
 
     def __str__(self):

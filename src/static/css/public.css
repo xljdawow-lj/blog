@@ -1,4 +1,4 @@
-body{font-size:14px;font-size:100%;font-family:'Microsoft YaHei';line-height:24px;margin:0;padding:0;min-width:320px;display:none;}
+body{font-size:14px;font-size:100%;font-family:'Microsoft YaHei';line-height:24px;margin:0;padding:0;min-width:320px;display:none;height:100%}
 a{color:inherit;text-decoration:none;}
 img{border:none;}
 ul,dl,dt,dd,p{padding:0;margin:0;list-style:none;}
@@ -100,7 +100,7 @@ header .mynav{width:60%;float:right;height:100%;position:relative;}
 .mynav >ul{}
 .mynav >ul >li{text-align:center;width:12.5%;font-size:16px;color:inherit;height:100%;float:left;position:relative;}
 
-.mynav> ul >li >a{display:inline-block;width:100%;height:70px;line-height:70px;color:#ff6700;transition:all 0.2s;-webkit-transition:all 0.2s;}
+.mynav> ul >li >a{display:inline-block;width:100%;height:70px;line-height:70px;color:#ff6700;}
 .mynav >ul >li >a:hover {background: #13c5f8;color:#fff;/*url(../images/bgimg/nav.png)no-repeat;*/font-size:20px;}
 .mynav >.nav-active{background: #13c5f8;/*url(../images/bgimg/nav.png)no-repeat;*/}
 .mynav >.nav-active a{color:#fff!important;font-size:20px;}
@@ -111,7 +111,8 @@ header .mynav{width:60%;float:right;height:100%;position:relative;}
 .drop-nav{}
 .drop-nav li.nav-active a{border:none;}
 
-.drop .el-chevron-down{font-size:12px;margin-left:10px;display:inline-block;transition: all 0.2s;-webkit-transition: all 0.2s;}
+.drop .el-chevron-down{font-size:12px;margin-left:10px;display:inline-block;}
+/*.drop .el-chevron-down{font-size:12px;margin-left:10px;display:inline-block;transition: all 0.2s;-webkit-transition: all 0.2s;}*/
 .nav-active .el-chevron-down{transform:rotate(180deg);}
 .drop:hover .el-chevron-down{transform:rotate(180deg);}
 .drop-nav{position:absolute;width:150px;border:1px solid #ddd;top:70px;box-sizing:border-box;border-top:none;display:none;	background:rgba(255,255,255,0.9);box-shadow:2px 2px 8px #ccc;}
@@ -148,7 +149,7 @@ header .mynav{width:60%;float:right;height:100%;position:relative;}
 
 
 /*section*/
-.container{width:100%;max-width:1300px;min-width:320px;margin:auto;overflow:hidden;padding-top:100px;}
+.container{width:100%;max-width:1300px;min-width:320px;margin:auto;overflow:hidden;padding-top:100px;min-height: calc(100vh - 100px);}
 
 
 .mysection{width:65%;float:left;}
@@ -157,7 +158,7 @@ header .mynav{width:60%;float:right;height:100%;position:relative;}
 .arclist >ul{width:100%;}
 .arclist>ul>li{width:100%;margin:auto;padding:25px;box-sizing:border-box;margin-bottom:25px;overflow:hidden;position:relative;background:rgba(255,255,255,0.5);}
 .arclist>ul>li> .arcimg{width:25%;height:105px;float:left;overflow:hidden;}
-.arclist>ul>li> .arcimg img{width:100%;height:100%;transition: all 0.5s;-webkit-transition: all 0.5s;}
+.arclist>ul>li> .arcimg img{width:50%;height:75%;transition: all 0.5s;-webkit-transition: all 0.5s;}
 .arc-right{width:71%;float:right;position:relative;}
 .arc-right h4{padding:0;margin:0;background:none;font-size:18px;padding-bottom:11px;text-indent:0;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
 .arc-right p{font-size:13px;overflow:hidden;text-overflow:ellipsis;height:54px;color:#515151;}
@@ -175,7 +176,7 @@ header .mynav{width:60%;float:right;height:100%;position:relative;}
 .section{    width: 45%;float: left;margin: 0 2.5%;}
 
 .xiangguan{width:100%;overflow:hidden;}
-.xiangguan div{display:block;font-size:14px;float:left;overflow:hidden;width:25%;text-align:center;margin-bottom:20px;padding-top:10px;color:#fff;}
+.xiangguan div{display:block;font-size:14px;float:left;overflow:hidden;width:33%;text-align:center;margin-bottom:20px;padding-top:10px;color:#fff;}
 .xiangguan div a{display:inline-block;width:50px;height:50px;margin:auto;border-radius:100px;-webkit-border-radius:100px;transition:all 0.5s;-webkit-transition:all 0.5s;}
 .xiangguan div a i{line-height:50px;font-size:20px;margin:0;}
 .xiangguan div span{display:block;width:100%;padding-top:10px;color:#777;}
@@ -374,7 +375,7 @@ footer{width:100%;background:rgba(0,67,94,0.95);margin-top:35px;}
 .tuwen-pd ul li img{width:50px;height:50px;}
 .tuwen-pd ul li img:hover{opacity:0.6;}
 /*foot-nav*/
-.foot-nav{width:100%;text-align:center;padding:10px 0;overflow:hidden;font-size:12px;background:#202121;color:#fff;}
+.foot-nav{width:100%;text-align:center;padding:10px 0;overflow:hidden;font-size:12px;background:#202121;color:#fff;  margin-top: auto; /* 页脚自动下沉 */}
 .foot-nav .copy-right{margin-bottom:10px;}
 
 
