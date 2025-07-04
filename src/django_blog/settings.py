@@ -125,18 +125,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 # 静态文件存储路径
 STATIC_URL = '/static/'
-# 媒体文件存储路径
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 媒体文件存储路径
+# # 媒体文件存储路径
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 媒体文件存储路径
 
+# 生产环境静态文件目录
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
