@@ -20,12 +20,18 @@ from django.views.generic import RedirectView
 
 from blog import views
 
+from django.contrib.staticfiles.views import serve
+from django.urls import re_path
+
+def return_static(request, path, insecure=True, **kwargs):
+  return serve(request, path, insecure, **kwargs)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include(('blog.urls', 'blog'), namespace='blog')),
     # path('', views.index, name='index'),
     path('', RedirectView.as_view(url='blog')),  # 根目录时跳转到blog
+    re_path(r'^static/(?P<path>.*)$', return_static, name='static'),  # 添加这行
 ]
 
 handler404 = views.page_not_found_error
