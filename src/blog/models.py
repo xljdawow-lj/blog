@@ -10,13 +10,15 @@ class Tag(models.Model):
     def __str__(self):
         return self.tag_name
 
+from ckeditor.fields import RichTextField
 
 class Article(models.Model):
     objects = None
     title = models.CharField(max_length=200)  # 博客标题
     category = models.ForeignKey('Category', verbose_name='文章类型', on_delete=models.CASCADE)
     date_time = models.DateField(auto_now_add=True)  # 博客日期
-    content = models.TextField(blank=True, null=True)  # 文章正文
+    # content = models.TextField(blank=True, null=True)  # 文章正文
+    content = RichTextField(blank=True, null=True)  # 替换原来的TextField
     digest = models.TextField(blank=True, null=True)  # 文章摘要
     author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='作者', on_delete=models.CASCADE)
     view = models.BigIntegerField(default=0)  # 阅读数

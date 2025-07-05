@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+print("Base dir的路径是：%s"%BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -23,11 +23,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '85bus3!*+_3t1ks)&&o(u-liuhucshja!-44a1squ93=#+v+4r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# DEBUG = True
+# ALLOWED_HOSTS = ['*']
 
-# HOST = "http://www.spiderpy.cn"
+# 生产环境推荐写法（精确匹配）
+DEBUG = False
+ALLOWED_HOSTS = [
+    'liangjundj.asia',       # 主域名
+    'www.liangjundj.asia',   # www子域名
+    '43.143.163.21',               # 你的腾讯云服务器公网IP
+    'localhost',             # 本地测试
+    '127.0.0.1'              # 本地环回
+]
 
 # Application definition
 
@@ -40,7 +48,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     # 'blog',
+    'ckeditor',
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,11 +149,11 @@ STATIC_URL = '/static/'
 # # 媒体文件存储路径
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 媒体文件存储路径
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 文件系统绝对路径
 # 生产环境静态文件目录
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+]
+# Put strings here, like "/home/html/static" or "C:/www/django/static".
+# Always use forward slashes, even on Windows.
+# Don't forget to use absolute paths, not relative paths.

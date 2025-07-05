@@ -22,3 +22,9 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     pass
+
+from django.contrib.auth.models import Group, User
+
+# 隐藏 Django 后台的认证和授权（也就是说，隐藏后台账号添加和修改）
+# admin.site.unregister(Group)
+# admin.site.unregister(User)

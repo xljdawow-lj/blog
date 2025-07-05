@@ -13,4 +13,3 @@ urlpatterns = [
     path('getComment/', views.get_comment, name='get_comment'),
 
 ]
-
