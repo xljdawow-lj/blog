@@ -1,10 +1,11 @@
 {% extends "blog/base.html" %}
-
+{% load static %}
 {% block css %}
-    <link rel="stylesheet" href="/static/css/flexslider.css"/>
+{#    <link rel="stylesheet" href="/static/css/flexslider.css"/>#}
+    <link rel="stylesheet" href="{% static 'css/flexslider.css' %}"/>
 {% endblock %}
 
-{% load static %}
+
 {% block content %}
     <!--轮播图。随便整3张本地图片放上去-->
     <section class="mysection">
@@ -21,13 +22,14 @@
                 </li>
                 <li class="swiper-slide">
                     <a href="#" title="我是第二只小猫咪">
-                        <img src="/static/images/2.webp" style="width: 845px; height: 497px; object-fit: contain;" alt="second_img"/>
+{#                        <img src="/static/images/2.webp" style="width: 845px; height: 497px; object-fit: contain;" alt="second_img"/>#}
+                        <img src="{% static 'images/2.webp' %}" style="width: 845px; height: 497px; object-fit: contain;" alt="second_img"/>
                     </a>
                     <div class="swiper-pagination"></div>
                 </li>
                 <li class="swiper-slide">
                     <a href="#" title="我是第三只小猫咪">
-                        <img src="/static/images/3.webp" style="width: 845px; height: 497px; object-fit: contain;" alt="third_img"/>
+                        <img src="{% static 'images/3.webp' %}" style="width: 845px; height: 497px; object-fit: contain;" alt="third_img"/>
                     </a>
                     <div class="swiper-pagination"></div>
                 </li>
@@ -68,8 +70,8 @@
 {% endblock %}
 
 {% block js %}
-    <script src="/static/js/album.js"></script>
-    <script src="/static/js/jquery.flexslider-min.js"></script>
+    <script src="{% static 'js/album.js' %}"></script>
+    <script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
     <script type="text/javascript">
         $(function () {
             // 轮播图

@@ -1,5 +1,5 @@
 body {
-    /*background: #e9ecd7 url(/static/images/bgimg/bg0.jpg);*/
+    background: #e9ecd7 url(/static/images/bgimg/bg0.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%
@@ -16,9 +16,9 @@ html {
     cursor: url(/static/cur/link.cur), auto
 }
 
-/*body {*/
-/*    cursor: url(/static/cur/default.cur), auto*/
-/*}*/
+body {
+    cursor: url(/static/cur/default.cur), auto
+}
 
 body:after {
     content: '';
@@ -47,7 +47,7 @@ input:focus, textarea:focus {
 }
 
 .orange-text {
-    color: #0bbd84;
+    color: #ff6700
 }
 
 .blue-text {
@@ -64,7 +64,7 @@ input:focus, textarea:focus {
 }
 
 .index-title small {
-    color: #267136;
+    color: #bcbcbc;
     margin-left: 5px;
     font-size: 12px
 }
@@ -79,7 +79,7 @@ header {
 }
 
 .mynav > ul > li > a {
-    color: #267136
+    color: #ff6700
 }
 
 .mynav > ul > li > a:hover {
@@ -135,7 +135,7 @@ audio, canvas, video {
 
 @media screen and (min-width: 320px) and (max-width: 1023px) {
     body {
-        /*background: url(/static/images/bgimg/bg.png) no-repeat;*/
+        background: url(/static/images/bgimg/mob-bg2.jpg) no-repeat;
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: 100%

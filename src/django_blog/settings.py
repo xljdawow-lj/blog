@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print("Base dir的路径是：%s"%BASE_DIR)
+print("Base dir的路径是：%s" % BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -27,18 +27,20 @@ SECRET_KEY = '85bus3!*+_3t1ks)&&o(u-liuhucshja!-44a1squ93=#+v+4r'
 # DEBUG = True
 # ALLOWED_HOSTS = ['*']
 
-# 生产环境推荐写法（精确匹配）
+SECURE_SSL_REDIRECT = False     # 禁用 HTTPS 重定向
+
+# 生产环境推荐写法（精确匹配）http://liangjundj.asia:8000/static/css/public.css
 DEBUG = False
 ALLOWED_HOSTS = [
-    'liangjundj.asia',       # 主域名
-    'www.liangjundj.asia',   # www子域名
-    '43.143.163.21',               # 你的腾讯云服务器公网IP
-    'localhost',             # 本地测试
-    '127.0.0.1'              # 本地环回
+    'liangjundj.asia',  # 主域名
+    'www.liangjundj.asia',  # www子域名
+    '43.143.163.21',  # 你的腾讯云服务器公网IP
+    'localhost',  # 本地测试
+    '127.0.0.1'  # 本地环回
 ]
 
-# Application definition
-
+# Application definition  http://43.143.163.21/static/css/public.css
+# http://localhost/static/css/public.css
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -61,6 +63,7 @@ CKEDITOR_CONFIGS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,14 +71,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'django_blog.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +94,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_blog.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -104,11 +106,10 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
-            'charset': 'utf8mb4',             # 支持 Emoji 和特殊字符
+            'charset': 'utf8mb4',  # 支持 Emoji 和特殊字符
         }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -128,8 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'zh-hans'
@@ -142,18 +141,19 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-# 静态文件存储路径
-STATIC_URL = '/static/'
-# # 媒体文件存储路径
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 媒体文件存储路径
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 文件系统绝对路径
-# 生产环境静态文件目录
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',  # 从 STATICFILES_DIRS 查找
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',  # 从各 app 的 static/ 目录查找
 ]
-# Put strings here, like "/home/html/static" or "C:/www/django/static".
-# Always use forward slashes, even on Windows.
-# Don't forget to use absolute paths, not relative paths.
+
+# 静态文件存储路径，STATIC_URL就是映射的地址
+STATIC_URL = '/static/'
+# STATIC_ROOT 在部署的时候发生作用
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 文件系统绝对路径
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 文件系统绝对路径
+STATIC_ROOT = 'D:/django-blog-master/src/staticfiles'  # 文件系统绝对路径
+print("STATIC_ROOT的路径是：%s" % STATIC_ROOT)
+# 生产环境静态文件目录
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+# STATICFILES_DIRS = []
+# nginx -c C:\nginx\conf\nginx.conf  # 重新加载配置

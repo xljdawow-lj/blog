@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% load custom_filter %}
+{% load static %}
 
 {% block title %}
     <title>{{ blog.title }}</title>
@@ -12,8 +13,8 @@
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/static/css/markdown.css">
-    <link rel="stylesheet" href="/static/prism/prism.css">
+    <link rel="stylesheet" href="{% static 'css/markdown.css' %}">
+    <link rel="stylesheet" href="{% static 'prism/prism.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -109,10 +110,10 @@
 
 {% block js %}
 
-    <script src="/static/js/jquery.2.1.4.min.js"></script>
+    <script src="{% static 'js/jquery.2.1.4.min.js' %}"></script>
 
-    <script src="/static/prism/clipboard.min.js"></script>
-    <script src="/static/prism/prism.js" charset="utf-8"></script>
+    <script src="{% static 'prism/clipboard.min.js' %}"></script>
+    <script src="{% static 'prism/prism.js' %}" charset="utf-8"></script>
 
     <script type="text/javascript"
             src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

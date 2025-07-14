@@ -15,8 +15,7 @@ $(document).ready(function () {
 
         $(".animation-div").eq(s).css({
             "-webkit-animation-name": "fuxiasuo",
-            "-webkit-animation-duration": s / 7 +
-                1 + "s",
+            "-webkit-animation-duration": s / 7 + 1 + "s",
             "animation-name": "fuxiasuo",
             "animation-duration": s / 7 + 1 + "s"
         });
@@ -109,13 +108,13 @@ $(document).ready(function () {
     //滑动效果
     $(".drop").mouseenter(function () {
 
-        $(".drop-nav").css({"-webkit-animation": "zuo1 0.5s", "animation": "zuo1 0.5s"}).show();
+        $(".drop-nav").css({"-webkit-animation": "zuo1 0.8s", "animation": "zuo1 0.8s"}).show();
 
     });
 
 
     $(".drop").mouseleave(function () {
-        $(".drop-nav").css({"-webkit-animation": "zuo2 0.5s", "animation": "zuo2 0.5s"});
+        $(".drop-nav").css({"-webkit-animation": "zuo2 0.8s", "animation": "zuo2 0.8s"});
         setTimeout(function () {
             $(".drop-nav").hide();
         }, 500);

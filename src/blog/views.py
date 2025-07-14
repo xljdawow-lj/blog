@@ -9,19 +9,21 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, get_object_or_404
 from loguru import logger
 
+
 def get_page(request):
     page_number = request.GET.get("page")
     logger.info("调用：get_page 函数")
     return 1 if not page_number or not page_number.isdigit() else int(page_number)
+
 
 def index(request):
     _blog_list = Article.objects.all().order_by('-date_time')[0:5]
     _blog_hot = Article.objects.all().order_by('-view')[0:6]
     logger.info("调用：index 函数")
 
-
-    return render(request,'blog/index.html',
+    return render(request, 'blog/index.html',
                   {"blog_list": _blog_list, "blog_hot": _blog_hot})
+
 
 # https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=5d3294d793e5735f03d0aa1b6c286ae8
 
@@ -72,6 +74,7 @@ def tag(request, name):
                                              "tag": name,
                                              "page_info": page_info})
 
+
 def archive(request):
     """
     文章归档
@@ -95,8 +98,6 @@ def archive(request):
 def message(request):
     logger.info("调用：message 函数")
     return render(request, 'blog/message_board.html', {"source_id": "message"})
-
-
 
 
 @csrf_exempt
