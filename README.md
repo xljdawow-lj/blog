@@ -1,6 +1,7 @@
 ## Django搭建博客
 ![py35](https://img.shields.io/badge/Python-3.5-red.svg) 
 ![Django2.2](https://img.shields.io/badge/Django-2.2.0-green.svg)
+[![](https://img.shields.io/badge/Powered%20by-@j_hao104-blue.svg)](http://www.spiderpy.cn/blog/)
 
 使用Django快速搭建博客
 ### 要求
@@ -49,21 +50,3 @@ http://ip:port/admin
 
 * 文章内容
 ![文章内容](docs/image/img_3.png)
-
-# 清空并重新生成 staticfiles文件夹，生产专用
-python manage.py collectstatic --noinput --clear
-
-# 启动服务器，生产环境用的80端口
-waitress-serve --host=0.0.0.0 --port=8000 django_blog.wsgi:application
-
-# 本地启动服务器
-py manage.py runserver
-
-# 使用本地.env虚拟环境
-在pycharm，鼠标右键点击“打开于”选择“终端”
-
-# 创建虚拟环境
-python -m venv .env
-
-# 打开终端，可能自动激活，如果没有，手动运行
-.\.env\Scripts\activate.bat
